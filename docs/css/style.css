@@ -149,12 +149,12 @@ strong {
    =============================== */
 
 .hero-innovation {
-  background: linear-gradient(160deg, #0A0A0A 50%, #001F3F 100%);
+  background: linear-gradient(160deg, #0A0A0A 50%, #FFFFFF 100%);
   border-bottom: 2px solid #FFFFFF;
 }
 
 .hero-resources {
-  background: linear-gradient(180deg, #FFFFFF 20%, #E8E8E8 100%);
+  background: linear-gradient(180deg, #FFFFFF 20%, #FFFFFF 100%);
   color: var(--color-black);
 }
 
@@ -384,4 +384,5 @@ body:not(.loading-fonts) .nav a {
   .mission-text { font-size: 4vw; }
   .hub-container { grid-template-columns: 1fr; }
 }
+
 
