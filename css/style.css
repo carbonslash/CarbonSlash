@@ -1,0 +1,386 @@
+/* ===============================
+   CARBON SLASH — GLOBAL STYLES
+   =============================== */
+
+/* --- COLOR & FONT VARIABLES --- */
+:root {
+  --color-black: #0A0A0A;
+  --color-white: #FFFFFF;
+  --font-primary: 'DM Serif Display', serif;
+  --font-title: 'Rubik Dirt', cursive;
+}
+
+/* --- RESET --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 {
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+  transition: color 0.3s;
+}
+
+strong {
+  color: var(--color-white);
+}
+
+/* ===============================
+   HEADER & NAVIGATION
+   =============================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 24px;
+  color: var(--color-white);
+  letter-spacing: 2px;
+}
+
+.nav a {
+  margin-left: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav a.active {
+  border-bottom: 2px solid var(--color-white);
+  padding-bottom: 2px;
+}
+
+.cta-nav {
+  background-color: var(--color-white);
+  color: var(--color-black) !important;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-nav:hover {
+  background-color: #333;
+  color: var(--color-white) !important;
+}
+
+/* ===============================
+   HERO SECTIONS
+   =============================== */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--color-black);
+  border-bottom: 2px solid var(--color-white);
+  position: relative;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+.hero-content {
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 8vw;
+  line-height: 0.8;
+  color: var(--color-white);
+}
+
+.hero-tagline {
+  font-size: 2vw;
+  margin: 20px 0 40px;
+  font-weight: 300;
+  color: var(--color-white);
+}
+
+.primary-cta {
+  display: inline-block;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  border: 2px solid var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+  transition: transform 0.2s, background-color 0.3s, color 0.3s;
+  letter-spacing: 1px;
+}
+
+.primary-cta:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  transform: scale(1.05);
+}
+
+/* ===============================
+   PAGE VARIANTS
+   =============================== */
+
+.hero-innovation {
+  background: linear-gradient(160deg, #0A0A0A 50%, #001F3F 100%);
+  border-bottom: 2px solid #00BFFF;
+}
+
+.hero-resources {
+  background: linear-gradient(180deg, #FFFFFF 20%, #E8E8E8 100%);
+  color: var(--color-black);
+}
+
+.hero-resources .hero-title,
+.hero-resources .hero-tagline {
+  color: var(--color-black);
+}
+
+/* ===============================
+   MISSION SECTIONS
+   =============================== */
+
+.mission {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 120px 50px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.mission.alt-theme {
+  background-color: #111;
+  color: var(--color-white);
+}
+
+/* ===============================
+   HUB GRID (TILE SECTIONS)
+   =============================== */
+
+.audience-hubs {
+  padding: 100px 50px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 60px;
+  color: var(--color-white);
+}
+
+.hub-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+/* HUB CARD BASE */
+.hub-card {
+  position: relative;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 40px;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--color-white);
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s;
+}
+
+.hub-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: background 0.3s;
+}
+
+.hub-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--color-white);
+  box-shadow: 0 25px 60px rgba(255, 255, 255, 0.1);
+}
+
+.hub-card:hover .hub-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hub-title,
+.hub-subtitle,
+.hub-link-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+.hub-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hub-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.hub-link-arrow {
+  font-size: 40px;
+  font-weight: bold;
+  transition: transform 0.3s ease-out;
+}
+
+.hub-card:hover .hub-link-arrow {
+  transform: translateX(10px);
+}
+
+/* Light Variant (for Resources page) */
+.light-card {
+  background-color: #F4F4F4;
+  color: #0A0A0A;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.light-overlay {
+  background: rgba(255, 255, 255, 0.6);
+}
+.light-card:hover {
+  border-color: #0A0A0A;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Soft fade divider between hubs and footer */
+.audience-hubs::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0) 0%, #050505 100%);
+  pointer-events: none;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+
+.footer {
+  padding: 100px 50px;
+  text-align: center;
+  background-color: #050505; /* deeper contrast */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 2;
+}
+
+.footer p {
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.subscribe-form input[type="email"] {
+  padding: 15px 20px;
+  width: 300px;
+  border: 1px solid var(--color-white);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: 16px;
+  margin-right: 10px;
+  outline: none;
+}
+
+.subscribe-form .cta-button {
+  padding: 15px 30px;
+  border: 2px solid var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.subscribe-form .cta-button:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* ===============================
+   FONT LOADING FIX
+   =============================== */
+
+.loading-fonts .mission-text,
+.loading-fonts h1,
+.loading-fonts h2,
+.loading-fonts h3,
+.loading-fonts p,
+.loading-fonts a,
+.loading-fonts .cta-button,
+.loading-fonts .logo,
+.loading-fonts .nav a {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body:not(.loading-fonts) .mission-text,
+body:not(.loading-fonts) h1,
+body:not(.loading-fonts) h2,
+body:not(.loading-fonts) h3,
+body:not(.loading-fonts) p,
+body:not(.loading-fonts) a,
+body:not(.loading-fonts) .cta-button,
+body:not(.loading-fonts) .logo,
+body:not(.loading-fonts) .nav a {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===============================
+   RESPONSIVE ADJUSTMENTS
+   =============================== */
+
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .header { justify-content: center; }
+  .hero-title { font-size: 12vw; }
+  .hero-tagline { font-size: 4vw; }
+  .mission-text { font-size: 4vw; }
+  .hub-container { grid-template-columns: 1fr; }
+}
