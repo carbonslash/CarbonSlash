@@ -1,11 +1,10 @@
-
 :root {
     --color-black: #111111; /* Dark text */
     --color-white: #FFFFFF; /* Main background */
     --color-light-grey: #F0F0F0; /* Subtle section background */
     --color-accent: #E53935; /* Single, objective red for emphasis */
-    --font-primary: 'DM Serif Display', serif; 
-    --font-title: 'Rubik Dirt', cursive;
+    --font-primary: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+    --font-title: 'Rubik Dirt', 'Comic Sans MS', cursive;
     --grid-padding: 50px;
 }
 
@@ -23,6 +22,7 @@ body {
     line-height: 1.5;
     scroll-behavior: smooth;
 }
+
 /* Initially hide text to prevent FOUT */
 .fonts-loading body {
     visibility: hidden;
@@ -33,12 +33,19 @@ body {
     visibility: visible;
     transition: visibility 0s linear 0s; /* optional smooth fallback */
 }
+
+
 /* --- TYPOGRAPHY --- */
 h1, h2, h3 {
     font-family: var(--font-title); 
     text-transform: uppercase;
     letter-spacing: -1px; 
     font-weight: 900;
+    /* NEW: Distressed/Grungy effect using text-shadow */
+    text-shadow: 
+        1px 1px 0 rgba(0, 0, 0, 0.1), 
+        -1px -1px 0 rgba(0, 0, 0, 0.1),
+        0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 a {
@@ -77,6 +84,11 @@ strong {
     color: var(--color-accent); /* Accent color for branding element */
     letter-spacing: 0;
     font-weight: 900;
+    /* Applying the same shadow effect to the logo */
+    text-shadow: 
+        1px 1px 0 rgba(0, 0, 0, 0.1), 
+        -1px -1px 0 rgba(0, 0, 0, 0.1),
+        0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .nav a {
@@ -121,7 +133,15 @@ strong {
     justify-content: flex-start;
     align-items: center;
     text-align: left;
-    background-color: var(--color-white);
+    background-color: var(--color-black); /* Set background to black for overlay */
+    
+   
+    /* Note: The '.. /' moves up one folder (out of 'css') then down into 'img' */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                      url('../assets/tesla.jpg');
+    background-size: cover;
+    background-position: center 30%; /* Focus a bit higher */
+    
     border-bottom: 1px solid var(--color-black);
     position: relative;
     overflow: hidden;
@@ -133,12 +153,14 @@ strong {
     padding: 0 var(--grid-padding);
     /* Use a max-width for column alignment */
     max-width: 800px;
+    /* Ensure content is white over dark background */
+    color: var(--color-white); 
 }
 
 .hero-title {
     font-size: 6vw;
     line-height: 0.9;
-    color: var(--color-black);
+    color: var(--color-white); /* Changed to white */
     margin-bottom: 20px;
 }
 
@@ -146,7 +168,7 @@ strong {
     font-size: 1.5vw;
     margin: 20px 0 40px;
     font-weight: 300;
-    color: var(--color-black);
+    color: var(--color-white); /* Changed to white */
     line-height: 1.4;
 }
 
@@ -166,7 +188,7 @@ strong {
 
 .primary-cta:hover {
     background-color: var(--color-accent);
-    color: var(--color-white);
+    color: var(--color-black); /* Text should become black over red hover */
     transform: none;
 }
 
@@ -337,4 +359,3 @@ strong {
     .hub-container { grid-template-columns: 1fr; }
     .footer { text-align: center; }
 }
-
