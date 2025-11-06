@@ -171,7 +171,7 @@ strong {
 }
 
 .hero-title {
-    font-size: 6vw;
+    font-size: 4vw;
     line-height: 0.9;
     color: #FFFFFF; /* Changed to white */
     margin-bottom: 20px;
@@ -385,3 +385,4 @@ strong {
     .hub-container { grid-template-columns: 1fr; }
     .footer { text-align: center; }
 }
+
