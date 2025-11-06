@@ -7,7 +7,29 @@
     --font-title: 'Rubik Dirt', 'Comic Sans MS', cursive;
     --grid-padding: 50px;
 }
+/* --- DARK MODE VARIABLES --- */
+.dark-mode {
+    --color-black: #FFFFFF; /* Dark mode background text becomes white */
+    --color-white: #111111; /* Dark mode background becomes black */
+    --color-light-grey: #222222; /* Subtle section background becomes a dark grey */
+    --color-accent: #FF5A55; /* Slightly brighter red accent for contrast on dark bg */
+}
 
+/* Ensure colors defined relative to variables change automatically: */
+.dark-mode .primary-cta:hover {
+    /* Special hover case for the CTA on dark mode */
+    background-color: var(--color-accent);
+    color: var(--color-white); /* Text should become white over red hover in dark mode */
+}
+
+/* Update any background-color overrides that use hardcoded colors: */
+/* Example: The Hero section's dark overlay should be adjusted for dark mode, 
+   or just ensure it uses a color that contrasts with the new body background. */
+
+.hero {
+    /* ... (Your existing hero styles) */
+    background-color: var(--color-white); /* Use the variable here now */
+}
 /* --- RESET --- */
 * {
     margin: 0;
@@ -101,11 +123,11 @@ strong {
 
 /* CTA should be functional, not decorative */
 .cta-nav {
-    background-color: transparent !important;
-    color: var(--color-accent) !important;
+    background-color: var(--color-accent) !important;
+    color: var(--color-white) !important;
     padding: 5px 10px !important;
     border: 1px solid var(--color-accent);
-    border-radius: 0; /* No rounded corners */
+    border-radius: 5px; /* No rounded corners */
     font-weight: 700;
 }
 
@@ -134,7 +156,6 @@ strong {
     background-size: cover;
     background-position: center 30%; /* Focus a bit higher */
     
-    border-bottom: 1px solid var(--color-black);
     position: relative;
     overflow: hidden;
     padding-top: 100px;
@@ -152,15 +173,16 @@ strong {
 .hero-title {
     font-size: 6vw;
     line-height: 0.9;
-    color: var(--color-white); /* Changed to white */
+    color: #FFFFFF; /* Changed to white */
     margin-bottom: 20px;
+	
 }
 
 .hero-tagline {
     font-size: 1.5vw;
     margin: 20px 0 40px;
     font-weight: 300;
-    color: var(--color-white); /* Changed to white */
+    color: #FFFFFF; /* Changed to white */
     line-height: 1.4;
 }
 
@@ -169,13 +191,13 @@ strong {
     padding: 12px 30px;
     text-transform: uppercase;
     border: 2px solid var(--color-accent);
-    background-color: transparent;
-    color: var(--color-accent);
+    background-color: var(--color-accent);
+    color: var(--color-white);
     /* Remove transform/shadow for flatness */
     transition: background-color 0.2s, color 0.2s;
     letter-spacing: 0.5px;
     font-weight: 700;
-    border-radius: 0;
+    border-radius: 5px;
 }
 
 .primary-cta:hover {
@@ -218,12 +240,7 @@ strong {
     margin-bottom: 0;
     background-color: var(--color-white);
 }
-.latest-insights {
-    /* To align the content with the rest of the page */
-    padding: 100px var(--grid-padding); 
-    text-align: left; /* Keep it left-aligned like the Swiss style */
-    background-color: none; 
-}
+
 .section-title {
     font-size: 38px;
     margin-bottom: 50px;
@@ -250,14 +267,19 @@ strong {
     border: none;
     color: var(--color-black);
     overflow: hidden;
-    border-radius: 0; /* No rounded corners */
+    border-radius: 5px; /* No rounded corners */
     transition: background-color 0.2s ease;
 }
 
 .hub-card:hover {
-    transform: none; /* Removed hover lift */
-    background-color: #E8E8E8; /* Subtle hover effect */
-    box-shadow: none;
+ /* COMBINED EFFECT: Move slightly up (-3px) AND enlarge by 2% (1.02) */
+    transform: translateY(-3px) scale(1.02); 
+    
+    /* Keep the faint hover color you liked */
+    background-color: none; 
+    
+    /* Keep the shadow for depth, maybe make it slightly softer for the enlarged look */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
 }
 
 /* Removed hub-overlay for flatness */
@@ -289,6 +311,13 @@ strong {
 /* Remove soft fade divider */
 .audience-hubs::after {
     display: none;
+}
+
+.latest-insights {
+    /* To align the content with the rest of the page */
+    padding: 100px var(--grid-padding); 
+    text-align: left; /* Keep it left-aligned like the Swiss style */
+    background-color: none; 
 }
 
 /* ===============================
@@ -356,4 +385,3 @@ strong {
     .hub-container { grid-template-columns: 1fr; }
     .footer { text-align: center; }
 }
-
