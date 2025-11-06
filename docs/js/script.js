@@ -45,3 +45,35 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.15 });
 
 revealElements.forEach(el => observer.observe(el));
+// --- DYNAMIC INSIGHTS FEED ---
+document.addEventListener('DOMContentLoaded', function() {
+    const feedContainer = document.getElementById('insights-feed');
+    if (!feedContainer) return;
+
+    const rssURL = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.topgear.com/rss';
+
+    fetch(rssURL)
+        .then(res => res.json())
+        .then(data => {
+            const articles = data.items.slice(0, 6); // Top 6 articles
+            articles.forEach(article => {
+                const card = document.createElement('a');
+                card.className = 'hub-card';
+                card.href = article.link;
+                card.target = '_blank';
+                card.innerHTML = `
+                    <div class="hub-overlay"></div>
+                    <h3 class="hub-title">${article.title}</h3>
+                    <p class="hub-subtitle">${article.pubDate.split(' ')[0]}</p>
+                    <span class="hub-link-arrow">→</span>
+                `;
+                feedContainer.appendChild(card);
+            });
+        })
+        .catch(err => {
+            console.error('Failed to fetch Insights feed:', err);
+            feedContainer.innerHTML = '<p>Unable to load articles at this time.</p>';
+        });
+});
+
+
