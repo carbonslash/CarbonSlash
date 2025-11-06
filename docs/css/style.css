@@ -150,7 +150,7 @@ strong {
 
 .hero-innovation {
   background: linear-gradient(160deg, #0A0A0A 50%, #001F3F 100%);
-  border-bottom: 2px solid #00BFFF;
+  border-bottom: 2px solid #FFFFFF;
 }
 
 .hero-resources {
@@ -384,3 +384,4 @@ body:not(.loading-fonts) .nav a {
   .mission-text { font-size: 4vw; }
   .hub-container { grid-template-columns: 1fr; }
 }
+
