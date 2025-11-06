@@ -218,7 +218,12 @@ strong {
     margin-bottom: 0;
     background-color: var(--color-white);
 }
-
+.latest-insights {
+    /* To align the content with the rest of the page */
+    padding: 100px var(--grid-padding); 
+    text-align: left; /* Keep it left-aligned like the Swiss style */
+    background-color: none; 
+}
 .section-title {
     font-size: 38px;
     margin-bottom: 50px;
@@ -351,3 +356,4 @@ strong {
     .hub-container { grid-template-columns: 1fr; }
     .footer { text-align: center; }
 }
+
