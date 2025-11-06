@@ -23,15 +23,6 @@ body {
     line-height: 1.5;
     scroll-behavior: smooth;
 }
-/* Initially hide text to prevent FOUT */
-.fonts-loading body {
-    visibility: hidden;
-}
-
-/* Show text once fonts are loaded */
-.fonts-loaded body {
-    visibility: visible;
-    transition: visibility 0s linear 0s; /* optional smooth fallback */
 
 /* --- TYPOGRAPHY --- */
 h1, h2, h3 {
