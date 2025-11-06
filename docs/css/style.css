@@ -41,11 +41,7 @@ h1, h2, h3 {
     text-transform: uppercase;
     letter-spacing: -1px; 
     font-weight: 900;
-    /* NEW: Distressed/Grungy effect using text-shadow */
-    text-shadow: 
-        1px 1px 0 rgba(0, 0, 0, 0.1), 
-        -1px -1px 0 rgba(0, 0, 0, 0.1),
-        0 1px 1px rgba(0, 0, 0, 0.05);
+    
 }
 
 a {
@@ -84,11 +80,7 @@ strong {
     color: var(--color-accent); /* Accent color for branding element */
     letter-spacing: 0;
     font-weight: 900;
-    /* Applying the same shadow effect to the logo */
-    text-shadow: 
-        1px 1px 0 rgba(0, 0, 0, 0.1), 
-        -1px -1px 0 rgba(0, 0, 0, 0.1),
-        0 1px 1px rgba(0, 0, 0, 0.05);
+    
 }
 
 .nav a {
