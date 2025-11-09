@@ -1,87 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Innovation | Carbon Slash</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Rubik+Dirt&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Slash | Premium Sustainable Insights</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load fonts with display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Critical CSS to prevent FOUT -->
+    <style>
+        /* Hide content until fonts are loaded */
+        .js-loading {
+            visibility: hidden;
+        }
+    </style>
 </head>
-<body class="loading-fonts">
+<body class="js-loading">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">C/</a>
+                <nav class="navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="electric.html">Electric</a></li>
+                        <li><a href="innovation.html" class="active">Innovation</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <!-- HEADER -->
-  <header class="header">
-     <div class="logo">C/</div>
-	<button id="theme-toggle" class="cta-nav">
-        Go Dark
-    </button>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="ev.html">EV</a>
-      <a href="innovation.html" class="active">Innovation</a>
-      <a href="insights.html">Insights</a>
-      <a href="community.html">Community</a>
-      <a href="resources.html">Resources</a>
-      <a href="merch.html">Merch</a>
-      <a href="#" class="cta-nav">Join the Network</a>
-    </nav>
-  </header>
+    <main>
+        <section class="category-header">
+            <div class="container">
+                <h1 class="category-title">Innovation</h1>
+                <p class="category-description">Breakthrough technologies and cutting-edge solutions driving the transition to a sustainable future.</p>
+            </div>
+        </section>
 
-  <!-- HERO -->
-  <section class="hero hero-innovation">
-    <div class="hero-content">
-      <h1 class="hero-title">INNOVATION</h1>
-      <p class="hero-tagline">Where technology meets imagination — building the mobility future.</p>
-    </div>
-  </section>
+        <section class="featured">
+            <div class="container">
+                <div class="view-toggle">
+                    <button class="toggle-button active" data-view="grid">Grid</button>
+                    <button class="toggle-button" data-view="list">List</button>
+                </div>
+                
+                <div class="grid-swiss">
+                    <article class="card featured-card">
+                        <div class="card-image">
+                            <img src="https://images.squarespace-cdn.com/content/v1/63dd6ef242301709c49831cd/8ef932fa-6933-472b-81be-eba6ba174949/DOE_DAC_image.png" alt="Carbon capture facility">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Carbon Capture</span>
+                            <h3 class="card-title">Direct Air Capture: Scaling to Gigaton Levels</h3>
+                            <p class="card-excerpt">How new technologies are making carbon removal from the atmosphere economically viable at scale.</p>
+                            <div class="card-meta">
+                                <span class="author">By Dr. Elena Schmidt</span>
+                                <span class="date">June 5, 2023</span>
+                            </div>
+                        </div>
+                    </article>
 
-  <!-- FEATURED INNOVATIONS -->
-  <section class="audience-hubs">
-    <h2 class="section-title">The Engine Room</h2>
-    <div class="hub-container">
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://asianinsiders.com/wp-content/uploads/2024/08/Korea-Hydrogen-Economy.jpg.webp" alt="Green hydrogen plant">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Green Hydrogen</span>
+                            <h3 class="card-title">The Hydrogen Economy Takes Shape</h3>
+                            <p class="card-excerpt">Breakthroughs in electrolysis and storage are making green hydrogen a viable clean energy carrier.</p>
+                            <div class="card-meta">
+                                <span class="author">By Michael Torres</span>
+                                <span class="date">May 30, 2023</span>
+                            </div>
+                        </div>
+                    </article>
 
-      <article class="hub-card">
-        <div class="hub-overlay"></div>
-        <h3 class="hub-title">Battery Breakthroughs</h3>
-        <p class="hub-subtitle">Solid-state evolution, faster charging, and recycling advances redefining the industry.</p>
-        <span class="hub-link-arrow">→</span>
-      </article>
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wind turbine blades">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Wind Power</span>
+                            <h3 class="card-title">Floating Wind Farms: Unlocking Deep Water Potential</h3>
+                            <p class="card-excerpt">How floating turbine technology is expanding offshore wind to previously inaccessible areas.</p>
+                            <div class="card-meta">
+                                <span class="author">By Sarah Johnson</span>
+                                <span class="date">May 25, 2023</span>
+                            </div>
+                        </div>
+                    </article>
 
-      <article class="hub-card">
-        <div class="hub-overlay"></div>
-        <h3 class="hub-title">AI in Motion</h3>
-        <p class="hub-subtitle">From predictive maintenance to autonomous learning systems driving safer journeys.</p>
-        <span class="hub-link-arrow">→</span>
-      </article>
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart grid technology">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Grid Technology</span>
+                            <h3 class="card-title">AI-Powered Smart Grids</h3>
+                            <p class="card-excerpt">How artificial intelligence is optimizing energy distribution and integrating renewable sources.</p>
+                            <div class="card-meta">
+                                <span class="author">By David Kim</span>
+                                <span class="date">May 20, 2023</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-      <article class="hub-card">
-        <div class="hub-overlay"></div>
-        <h3 class="hub-title">Design Language of Tomorrow</h3>
-        <p class="hub-subtitle">Minimalism, aerodynamics, and user-centric form shaping the emotional connection to tech.</p>
-        <span class="hub-link-arrow">→</span>
-      </article>
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Innovation Brief</h2>
+                    <p class="newsletter-description">Stay ahead with the latest sustainable technology breakthroughs.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    </div>
-  </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">CARBON SLASH</div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="electric.html">Electric</a></li>
+                            <li><a href="innovation.html">Innovation</a></li>
+                            <li><a href="insights.html">Insights</a></li>
+                            <li><a href="community.html">Community</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Carbon Slash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  <!-- FUTURE LAB -->
-  <section class="mission alt-theme">
-    <p class="mission-text">
-      Carbon Slash Innovation isn’t just about the latest prototypes — it’s a lens on how technology becomes culture.  
-      From battery architecture to smart infrastructure, we explore the edge of what’s possible.
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>Stay ahead of the curve.</p>
-    <form class="subscribe-form">
-      <input type="email" placeholder="Email Address" required>
-      <button type="submit" class="cta-button">Subscribe to Innovation</button>
-    </form>
-  </footer>
-
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
-
