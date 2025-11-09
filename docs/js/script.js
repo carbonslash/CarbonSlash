@@ -1,62 +1,117 @@
-/* --- THEME TOGGLE LOGIC --- */
+// script.js - Carbon Slash Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // FOUT Prevention - Wait for fonts to load before showing content
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function() {
+            document.body.classList.remove('js-loading');
+        });
+    } else {
+        // Fallback: wait a brief moment then show content
+        setTimeout(function() {
+            document.body.classList.remove('js-loading');
+        }, 100);
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.getElementById('theme-toggle');
-    const body = document.body;
+    // Grid/List view toggle
+    const viewToggle = document.querySelector('.view-toggle');
+    if (viewToggle) {
+        const gridButton = viewToggle.querySelector('.toggle-button[data-view="grid"]');
+        const listButton = viewToggle.querySelector('.toggle-button[data-view="list"]');
+        const gridContainer = document.querySelector('.grid-swiss');
+        const featuredCards = document.querySelectorAll('.featured-card');
 
-    // 1. Function to set the theme based on the class
-    function applyTheme(isDark) {
-        if (isDark) {
-            body.classList.add('dark-mode');
-            toggleButton.textContent = ' Light';
-            localStorage.setItem('theme', 'dark');
+        gridButton.addEventListener('click', function() {
+            gridContainer.classList.remove('list-view');
+            gridButton.classList.add('active');
+            listButton.classList.remove('active');
+            
+            // Reset featured cards to grid layout
+            featuredCards.forEach(card => {
+                card.style.gridColumn = 'span 2';
+            });
+            
+            localStorage.setItem('preferredView', 'grid');
+        });
+
+        listButton.addEventListener('click', function() {
+            gridContainer.classList.add('list-view');
+            listButton.classList.add('active');
+            gridButton.classList.remove('active');
+            
+            // Ensure featured cards work in list view
+            featuredCards.forEach(card => {
+                card.style.gridColumn = 'span 1';
+            });
+            
+            localStorage.setItem('preferredView', 'list');
+        });
+
+        // Set initial view from localStorage
+        const preferredView = localStorage.getItem('preferredView') || 'grid';
+        if (preferredView === 'list') {
+            gridContainer.classList.add('list-view');
+            listButton.classList.add('active');
+            gridButton.classList.remove('active');
+            
+            // Ensure featured cards work in list view
+            featuredCards.forEach(card => {
+                card.style.gridColumn = 'span 1';
+            });
         } else {
-            body.classList.remove('dark-mode');
-            toggleButton.textContent = ' Dark';
-            localStorage.setItem('theme', 'light');
+            gridButton.classList.add('active');
+            featuredCards.forEach(card => {
+                card.style.gridColumn = 'span 2';
+            });
         }
     }
 
-    // 2. Load the saved theme preference from local storage
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
-    if (savedTheme === 'dark') {
-        applyTheme(true);
-    } else if (savedTheme === 'light') {
-        applyTheme(false);
-    } else if (prefersDark) {
-        // Fallback: Use the operating system's preference if no theme is saved
-        applyTheme(true);
-    } else {
-        // Default to light mode
-        applyTheme(false);
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // Show success message
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Subscribed!';
+            submitButton.disabled = true;
+            
+            // Reset form
+            this.reset();
+            
+            // Reset button after delay
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 3000);
+        });
     }
 
-    // 3. Add the click listener to switch the theme
-    toggleButton.addEventListener('click', () => {
-        const isCurrentlyDark = body.classList.contains('dark-mode');
-        applyTheme(!isCurrentlyDark); // Toggle the current theme
+    // Card hover effects
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transition = 'transform 0.3s ease';
+        });
     });
 });
-// Add a class to prevent FOUT initially
-document.documentElement.classList.add('fonts-loading');
-
-if ('fonts' in document) {
-    // Wait for all fonts to load
-    document.fonts.ready.then(function() {
-        // Remove the loading class once fonts are ready
-        document.documentElement.classList.remove('fonts-loading');
-        document.documentElement.classList.add('fonts-loaded');
-    }).catch(function(err) {
-        console.error('Font loading failed:', err);
-        // Fallback: remove loading class anyway
-        document.documentElement.classList.remove('fonts-loading');
-    });
-} else {
-    // Fallback for browsers without the Font Loading API
-    window.addEventListener('load', function() {
-        document.documentElement.classList.remove('fonts-loading');
-        document.documentElement.classList.add('fonts-loaded');
-    });
-}
