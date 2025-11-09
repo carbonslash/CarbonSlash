@@ -1,79 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carbon Slash | Insights</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Rubik+Dirt&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Slash | Premium Sustainable Insights</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load fonts with display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Critical CSS to prevent FOUT -->
+    <style>
+        /* Hide content until fonts are loaded */
+        .js-loading {
+            visibility: hidden;
+        }
+    </style>
 </head>
-<body class="loading-fonts">
+<body class="js-loading">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">C/</a>
+                <nav class="navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="electric.html">Electric</a></li>
+                        <li><a href="innovation.html">Innovation</a></li>
+                        <li><a href="insights.html" class="active">Insights</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <!-- HEADER -->
-  <header class="header">
-     <div class="logo">C/</div>
-	<button id="theme-toggle" class="cta-nav">
-        Go Dark
-    </button>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="ev.html">EV</a>
-      <a href="innovation.html">Innovation</a>
-      <a href="insights.html" class="active">Insights</a>
-      <a href="community.html">Community</a>
-      <a href="resources.html">Resources</a>
-      <a href="merch.html">Merch</a>
-      <a href="#" class="cta-nav">Join the Network</a>
-    </nav>
-  </header>
+    <main>
+        <section class="category-header">
+            <div class="container">
+                <h1 class="category-title">Insights</h1>
+                <p class="category-description">Market analysis, policy developments, and strategic perspectives on the sustainable economy.</p>
+            </div>
+        </section>
 
-  <!-- HERO -->
-  <section class="hero insights-hero">
-    <div class="hero-content">
-      <h1 class="hero-title">INSIGHTS</h1>
-      <p class="hero-tagline">Analysis. Strategy. Impact.</p>
-      <a href="#editorials" class="cta-button primary-cta">Read Editorials</a>
-    </div>
-  </section>
+        <section class="featured">
+            <div class="container">
+                <div class="view-toggle">
+                    <button class="toggle-button active" data-view="grid">Grid</button>
+                    <button class="toggle-button" data-view="list">List</button>
+                </div>
+                
+                <div class="grid-swiss">
+                    <article class="card featured-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial charts">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Market Analysis</span>
+                            <h3 class="card-title">ESG Investing: Beyond the Hype</h3>
+                            <p class="card-excerpt">A deep dive into how environmental, social, and governance factors are reshaping global investment strategies.</p>
+                            <div class="card-meta">
+                                <span class="author">By Sarah Johnson</span>
+                                <span class="date">June 8, 2023</span>
+                            </div>
+                        </div>
+                    </article>
 
-  <!-- INSIGHTS GRID -->
-  <section class="insights-section" id="editorials">
-    <h2 class="section-title">MARKET & POLICY INSIGHTS</h2>
-    <div class="hub-container">
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Policy discussion">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Policy</span>
+                            <h3 class="card-title">Carbon Border Adjustments: Global Implications</h3>
+                            <p class="card-excerpt">How new trade policies are leveling the playing field for carbon-intensive industries.</p>
+                            <div class="card-meta">
+                                <span class="author">By Robert Chen</span>
+                                <span class="date">June 3, 2023</span>
+                            </div>
+                        </div>
+                    </article>
 
-      <article class="hub-card">
-        <div class="hub-overlay"></div>
-        <h3 class="hub-title">The Global EV Supply Chain</h3>
-        <p class="hub-subtitle">How geopolitics and rare earths are reshaping mobility.</p>
-        <span class="hub-link-arrow">→</span>
-      </article>
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://www.gep.com/prod/s3fs-public/blog-images/supply-chain-decarbonization-guide-J.jpg" alt="Supply chain network">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Supply Chain</span>
+                            <h3 class="card-title">Decarbonizing Global Supply Chains</h3>
+                            <p class="card-excerpt">Strategies for multinational corporations to reduce emissions across their value chains.</p>
+                            <div class="card-meta">
+                                <span class="author">By Maria Rodriguez</span>
+                                <span class="date">May 29, 2023</span>
+                            </div>
+                        </div>
+                    </article>
 
-      <article class="hub-card">
-        <div class="hub-overlay"></div>
-        <h3 class="hub-title">The 2030 Charging Mandate</h3>
-        <p class="hub-subtitle">Can infrastructure targets keep pace with adoption curves?</p>
-        <span class="hub-link-arrow">→</span>
-      </article>
+                    <article class="card">
+                        <div class="card-image">
+                            <img src="https://assets.bbhub.io/company/sites/51/2022/07/Bloomberg-Climate-Risk.png" alt="Risk assessment">
+                        </div>
+                        <div class="card-content">
+                            <span class="tag">Risk Management</span>
+                            <h3 class="card-title">Climate Risk in Financial Portfolios</h3>
+                            <p class="card-excerpt">New methodologies for assessing and mitigating climate-related financial risks.</p>
+                            <div class="card-meta">
+                                <span class="author">By David Kim</span>
+                                <span class="date">May 24, 2023</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-      <article class="hub-card">
-        <div class="hub-overlay"></div>
-        <h3 class="hub-title">Investing in Clean Tech</h3>
-        <p class="hub-subtitle">Where capital is flowing in the EV and renewables ecosystem.</p>
-        <span class="hub-link-arrow">→</span>
-      </article>
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Market Intelligence</h2>
+                    <p class="newsletter-description">Get strategic insights on sustainable business and policy.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    </div>
-  </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">CARBON SLASH</div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="electric.html">Electric</a></li>
+                            <li><a href="innovation.html">Innovation</a></li>
+                            <li><a href="insights.html">Insights</a></li>
+                            <li><a href="community.html">Community</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Carbon Slash. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  <footer class="footer">
-    <p>Think beyond the charge.</p>
-    <form class="subscribe-form">
-      <input type="email" placeholder="Email Address" required>
-      <button type="submit" class="cta-button">Subscribe to Insights</button>
-    </form>
-  </footer>
-
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
-
