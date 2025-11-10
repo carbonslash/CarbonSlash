@@ -12,59 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
-    // Grid/List view toggle
-    const viewToggle = document.querySelector('.view-toggle');
-    if (viewToggle) {
-        const gridButton = viewToggle.querySelector('.toggle-button[data-view="grid"]');
-        const listButton = viewToggle.querySelector('.toggle-button[data-view="list"]');
-        const gridContainer = document.querySelector('.grid-swiss');
-        const featuredCards = document.querySelectorAll('.featured-card');
-
-        gridButton.addEventListener('click', function() {
-            gridContainer.classList.remove('list-view');
-            gridButton.classList.add('active');
-            listButton.classList.remove('active');
-            
-            // Reset featured cards to grid layout
-            featuredCards.forEach(card => {
-                card.style.gridColumn = 'span 2';
-            });
-            
-            localStorage.setItem('preferredView', 'grid');
-        });
-
-        listButton.addEventListener('click', function() {
-            gridContainer.classList.add('list-view');
-            listButton.classList.add('active');
-            gridButton.classList.remove('active');
-            
-            // Ensure featured cards work in list view
-            featuredCards.forEach(card => {
-                card.style.gridColumn = 'span 1';
-            });
-            
-            localStorage.setItem('preferredView', 'list');
-        });
-
-        // Set initial view from localStorage
-        const preferredView = localStorage.getItem('preferredView') || 'grid';
-        if (preferredView === 'list') {
-            gridContainer.classList.add('list-view');
-            listButton.classList.add('active');
-            gridButton.classList.remove('active');
-            
-            // Ensure featured cards work in list view
-            featuredCards.forEach(card => {
-                card.style.gridColumn = 'span 1';
-            });
-        } else {
-            gridButton.classList.add('active');
-            featuredCards.forEach(card => {
-                card.style.gridColumn = 'span 2';
-            });
-        }
-    }
-
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
