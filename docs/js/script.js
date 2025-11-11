@@ -46,33 +46,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', onScroll);
 
-    // Mega Menu Functionality
+    // Mega Menu Functionality (Desktop)
     const menuTrigger = document.querySelector('.menu-trigger');
     const megaMenu = document.querySelector('.mega-menu');
     
     if (menuTrigger && megaMenu) {
         menuTrigger.addEventListener('click', function(e) {
             e.stopPropagation();
-            this.classList.toggle('active');
-            megaMenu.classList.toggle('active');
+            // Only activate on desktop
+            if (window.innerWidth > 768) {
+                this.classList.toggle('active');
+                megaMenu.classList.toggle('active');
+            } else {
+                // On mobile, open mobile menu
+                openMobileMenu();
+            }
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!megaMenu.contains(e.target) && !menuTrigger.contains(e.target)) {
-                menuTrigger.classList.remove('active');
-                megaMenu.classList.remove('active');
+            if (window.innerWidth > 768) {
+                if (!megaMenu.contains(e.target) && !menuTrigger.contains(e.target)) {
+                    menuTrigger.classList.remove('active');
+                    megaMenu.classList.remove('active');
+                }
             }
         });
 
         // Close menu on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                menuTrigger.classList.remove('active');
-                megaMenu.classList.remove('active');
+                if (window.innerWidth > 768) {
+                    menuTrigger.classList.remove('active');
+                    megaMenu.classList.remove('active');
+                } else {
+                    closeMobileMenu();
+                }
             }
         });
     }
+
+    // Mobile Menu Functionality
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+    function openMobileMenu() {
+        if (mobileMenu) {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeMobileMenu() {
+        if (mobileMenu) {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close mobile menu when clicking on links
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
 
     // Search Functionality
     const searchTrigger = document.querySelector('.search-trigger');
