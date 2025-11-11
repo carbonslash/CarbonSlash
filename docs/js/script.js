@@ -12,6 +12,77 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
+    // Header Scroll Effects
+    const header = document.querySelector('.header');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const scrolled = window.scrollY > 100;
+        
+        if (scrolled) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Hide header on scroll down, show on scroll up
+        if (window.scrollY > lastScrollY && window.scrollY > 200) {
+            header.classList.add('hidden');
+        } else {
+            header.classList.remove('hidden');
+        }
+        
+        lastScrollY = window.scrollY;
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll);
+
+    // Mega Menu Functionality
+    const menuTrigger = document.querySelector('.menu-trigger');
+    const megaMenu = document.querySelector('.mega-menu');
+    
+    if (menuTrigger && megaMenu) {
+        menuTrigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            megaMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!megaMenu.contains(e.target) && !menuTrigger.contains(e.target)) {
+                menuTrigger.classList.remove('active');
+                megaMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                menuTrigger.classList.remove('active');
+                megaMenu.classList.remove('active');
+            }
+        });
+    }
+
+    // Search Functionality
+    const searchTrigger = document.querySelector('.search-trigger');
+    if (searchTrigger) {
+        searchTrigger.addEventListener('click', function() {
+            // Implement search functionality here
+            alert('Search functionality coming soon!');
+        });
+    }
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
