@@ -57,9 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.innerWidth > 768) {
                 this.classList.toggle('active');
                 megaMenu.classList.toggle('active');
-            } else {
-                // On mobile, open mobile menu
-                openMobileMenu();
             }
         });
 
@@ -89,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Functionality
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const mobileMenuTrigger = document.querySelector('.mobile-menu-trigger');
 
     function openMobileMenu() {
         if (mobileMenu) {
@@ -104,6 +102,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function toggleMobileMenu() {
+        if (mobileMenu) {
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+    }
+
+    // Mobile menu trigger
+    if (mobileMenuTrigger) {
+        mobileMenuTrigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+
+    // Mobile menu close button
     if (mobileMenuClose) {
         mobileMenuClose.addEventListener('click', closeMobileMenu);
     }
@@ -112,6 +126,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && mobileMenu && mobileMenu.classList.contains('active')) {
+            if (!mobileMenu.contains(e.target) && !mobileMenuTrigger.contains(e.target)) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
     });
 
     // Search Functionality
