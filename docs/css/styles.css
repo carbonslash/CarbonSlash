@@ -313,7 +313,7 @@ p {
   padding: var(--space-xs) 0;
   position: relative;
 }
-
+    
 .menu-links a::before {
   content: '';
   position: absolute;
@@ -360,11 +360,14 @@ p {
   border-radius: 50%;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease
 }
 
 .mobile-menu-trigger:hover {
   background: rgba(45, 90, 75, 0.1);
   color: var(--forest-green);
+  box-shadow: none;
+
 }
 
 .mobile-menu-trigger svg {
