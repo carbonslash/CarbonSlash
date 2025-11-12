@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileMenu) {
             mobileMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
+            // Keep menu button visible - no changes needed
         }
     }
 
@@ -104,8 +105,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function toggleMobileMenu() {
         if (mobileMenu) {
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
         }
     }
 
